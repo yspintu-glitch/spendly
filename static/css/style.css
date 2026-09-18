@@ -478,6 +478,61 @@ a { color: inherit; text-decoration: none; }
 .auth-switch a:hover { text-decoration: underline; }
 
 /* ------------------------------------------------------------------ */
+/* Content pages (Terms, Privacy)                                     */
+/* ------------------------------------------------------------------ */
+
+.content-section {
+    padding: 4rem 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+.content-section h1 {
+    font-family: var(--font-display);
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+}
+
+.content-date {
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    margin-bottom: 2.5rem;
+}
+
+.content-section h2 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: var(--ink);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.content-section p {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+
+.content-section ul {
+    margin-left: 1.5rem;
+    margin-bottom: 1.25rem;
+}
+
+.content-section li {
+    font-size: 0.95rem;
+    color: var(--ink-muted);
+    line-height: 1.8;
+    margin-bottom: 0.5rem;
+}
+
+.content-section strong {
+    color: var(--ink-soft);
+    font-weight: 600;
+}
+
+/* ------------------------------------------------------------------ */
 /* Footer                                                              */
 /* ------------------------------------------------------------------ */
 
