@@ -15,16 +15,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Environment setup
 
-- A `.venv` (Python 3.13) already exists in the repo root. Activate it or invoke it directly:
-  - Windows: `./.venv/Scripts/python.exe` or `./.venv/Scripts/activate.ps1`
-  - macOS/Linux: `source .venv/bin/activate` or `./.venv/bin/python`
-- Dependencies are listed in `requirements.txt` (`flask`, `werkzeug`, `pytest`, `pytest-flask`) and installed into `.venv`
-- Install/update with: `./.venv/Scripts/python.exe -m pip install -r requirements.txt`
+- A `venv` (Python 3.13) already exists in the repo root. Activate it or invoke it directly:
+  - Windows: `./venv/Scripts/python.exe` or `./venv/Scripts/activate.ps1`
+  - macOS/Linux: `source venv/bin/activate` or `./venv/bin/python`
+- Dependencies are listed in `requirements.txt` (`flask`, `werkzeug`, `pytest`, `pytest-flask`) and installed into `venv`
+- Install/update with: `./venv/Scripts/python.exe -m pip install -r requirements.txt`
 
 ## Running the application
 
 ```
-./.venv/Scripts/python.exe app.py
+./venv/Scripts/python.exe app.py
 ```
 
 The app will start on `http://localhost:5001` (configured in `app.py`). Use `debug=True` for development.
@@ -50,7 +50,7 @@ expense-tracker/
 │   ├── login.html        # Login page (auth placeholder)
 │   └── register.html     # Registration page (auth placeholder)
 ├── requirements.txt
-└── .venv/                # Python virtual environment
+└── venv/                  # Python virtual environment
 ```
 
 ## Key architecture patterns
