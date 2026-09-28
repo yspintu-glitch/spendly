@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Your Profile — Spendly{% endblock %}
+
+{% block content %}
+
+<section class="auth-section">
+    <div class="auth-container">
+
+        <div class="auth-header">
+            <h1 class="auth-title">Your Profile</h1>
+            <p class="auth-subtitle">Member since {{ member_since }}</p>
+        </div>
+
+        <div class="auth-card">
+            <div class="profile-field">
+                <div class="profile-field-label">Name</div>
+                <div class="profile-field-value">{{ user.name }}</div>
+            </div>
+            <div class="profile-field">
+                <div class="profile-field-label">Email</div>
+                <div class="profile-field-value">{{ user.email }}</div>
+            </div>
+        </div>
+
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-label">Expenses logged</div>
+                <div class="stat-amount">{{ expense_count }}</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Total spent</div>
+                <div class="stat-amount stat-green">₹{{ "%.2f"|format(total_spent) }}</div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

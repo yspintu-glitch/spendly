@@ -1,9 +1,17 @@
 import os
 import sqlite3
+from datetime import datetime
 
 from flask import Flask, render_template, request, redirect, url_for, session
 
-from database.db import get_db, init_db, seed_db, create_user
+from database.db import (
+    get_db,
+    init_db,
+    seed_db,
+    create_user,
+    get_user_by_id,
+    get_expense_summary,
+)
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "dev-secret-key-not-for-production")
@@ -69,7 +77,25 @@ def logout():
 
 @app.route("/profile")
 def profile():
-    return "Profile page — coming in Step 4"
+    user_id = session.get("user_id")
+    if not user_id:
+        return redirect(url_for("login"))
+
+    user = get_user_by_id(user_id)
+    if user is None:
+        session.pop("user_id", None)
+        return redirect(url_for("login"))
+
+    summary = get_expense_summary(user_id)
+    member_since = datetime.strptime(user["created_at"], "%Y-%m-%d %H:%M:%S").strftime("%B %d, %Y")
+
+    return render_template(
+        "profile.html",
+        user=user,
+        member_since=member_since,
+        expense_count=summary["expense_count"],
+        total_spent=summary["total_spent"],
+    )
 
 
 @app.route("/expenses/add")
