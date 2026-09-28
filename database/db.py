@@ -79,6 +79,19 @@ def seed_db():
         conn.close()
 
 
+def get_user_by_email(email):
+    email = email.strip().lower()
+
+    conn = get_db()
+    try:
+        return conn.execute(
+            "SELECT * FROM users WHERE email = ?",
+            (email,),
+        ).fetchone()
+    finally:
+        conn.close()
+
+
 def create_user(name, email, password):
     name = name.strip()
     email = email.strip().lower()
